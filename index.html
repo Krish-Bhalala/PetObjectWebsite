@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetObject</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+
+  <body>
+    <!-- top nav -->
+    <div class="game-hud">
+      <div class="hud-left">
+        <div class="hud-logo">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#F1C40F" stroke-width="2" />
+            <line
+              x1="2"
+              y1="12"
+              x2="22"
+              y2="12"
+              stroke="#F1C40F"
+              stroke-width="2"
+            />
+            <circle cx="12" cy="12" r="3" fill="#F1C40F" />
+          </svg>
+          PetObject
+        </div>
+        <div class="hud-xp-wrap">
+          <span class="hud-xp-label">SCROLL XP</span>
+          <div class="hud-xp-bar">
+            <div class="hud-xp-fill" id="xpFill"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hud-nav">
+        <a href="#origin">Quest</a>
+        <a href="#petdex">PetDex</a>
+        <a href="#arena">Demo</a>
+        <a href="#guild">Guild</a>
+        <a href="#questlog">Log</a>
+      </div>
+      <button class="hud-sound" id="soundToggle" title="Toggle Sound">
+        ♪ ON
+      </button>
+    </div>
+
+    <div id="particles"></div>
+
+    <!-- title section -->
+    <section class="title-screen" id="home">
+      <div class="title-content">
+        <div class="capture-ball">
+          <svg
+            viewBox="0 0 120 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="60"
+              cy="60"
+              r="56"
+              fill="#E74C3C"
+              stroke="#2B2D31"
+              stroke-width="5"
+            />
+            <path d="M4 60 H116" stroke="#2B2D31" stroke-width="5" />
+            <rect
+              x="4"
+              y="60"
+              width="112"
+              height="56"
+              rx="56"
+              fill="white"
+              stroke="#2B2D31"
+              stroke-width="5"
+            />
+            <circle
+              cx="60"
+              cy="60"
+              r="18"
+              fill="white"
+              stroke="#2B2D31"
+              stroke-width="5"
+            />
+            <circle
+              cx="60"
+              cy="60"
+              r="10"
+              fill="#F1C40F"
+              stroke="#2B2D31"
+              stroke-width="3"
+            >
+              <animate
+                attributeName="r"
+                values="10;12;10"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </circle>
+          </svg>
+        </div>
+        <h1 class="title-main">Pet<span class="red">Object</span></h1>
+        <p class="title-sub">
+          Your purchases become creatures. Use them or lose them. A gamified
+          spending tracker for young adults.
+        </p>
+        <div class="creature-parade">
+          <div
+            class="creature"
+            style="background: #ffebee"
+            onclick="playSound('pop')"
+          >
+            <svg viewBox="0 0 48 48">
+              <rect x="20" y="4" width="8" height="28" rx="2" fill="#E74C3C" />
+              <circle
+                cx="24"
+                cy="36"
+                r="10"
+                fill="#C0392B"
+                stroke="#2B2D31"
+                stroke-width="2"
+              />
+              <circle cx="24" cy="36" r="4" fill="#2B2D31" />
+              <rect x="22" y="2" width="4" height="6" rx="1" fill="#F39C12" />
+            </svg>
+            <div class="c-hp">
+              <div
+                class="c-hp-fill"
+                style="width: 90%; background: #2ecc71"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="creature"
+            style="background: #e8f5e9"
+            onclick="playSound('pop')"
+          >
+            <svg viewBox="0 0 48 48">
+              <rect x="10" y="8" width="28" height="32" rx="2" fill="#27AE60" />
+              <rect
+                x="12"
+                y="10"
+                width="24"
+                height="28"
+                rx="1"
+                fill="#2ECC71"
+              />
+              <rect
+                x="16"
+                y="16"
+                width="16"
+                height="2"
+                fill="white"
+                opacity=".6"
+              />
+              <rect
+                x="16"
+                y="22"
+                width="12"
+                height="2"
+                fill="white"
+                opacity=".6"
+              />
+              <rect x="8" y="8" width="4" height="32" rx="1" fill="#1E8449" />
+            </svg>
+            <div class="c-hp">
+              <div
+                class="c-hp-fill"
+                style="width: 65%; background: #f39c12"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="creature"
+            style="background: #e3f2fd"
+            onclick="playSound('pop')"
+          >
+            <svg viewBox="0 0 48 48">
+              <rect x="8" y="16" width="32" height="22" rx="3" fill="#2980B9" />
+              <circle
+                cx="24"
+                cy="27"
+                r="8"
+                fill="#1A5276"
+                stroke="#2B2D31"
+                stroke-width="2"
+              />
+              <circle cx="24" cy="27" r="4" fill="#AED6F1" />
+              <rect x="16" y="12" width="16" height="6" rx="2" fill="#3498DB" />
+            </svg>
+            <div class="c-hp">
+              <div
+                class="c-hp-fill"
+                style="width: 100%; background: #2ecc71"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="creature"
+            style="background: #fff3e0"
+            onclick="playSound('pop')"
+          >
+            <svg viewBox="0 0 48 48">
+              <rect x="14" y="20" width="20" height="8" rx="2" fill="#95A5A6" />
+              <rect x="6" y="14" width="10" height="20" rx="2" fill="#7F8C8D" />
+              <rect
+                x="32"
+                y="14"
+                width="10"
+                height="20"
+                rx="2"
+                fill="#7F8C8D"
+              />
+              <rect x="4" y="18" width="6" height="12" rx="1" fill="#616161" />
+              <rect x="38" y="18" width="6" height="12" rx="1" fill="#616161" />
+            </svg>
+            <div class="c-hp">
+              <div
+                class="c-hp-fill"
+                style="width: 25%; background: #e74c3c"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="creature"
+            style="background: #f3e5f5"
+            onclick="playSound('pop')"
+          >
+            <svg viewBox="0 0 48 48">
+              <path
+                d="M12 28 Q12 14 24 14 Q36 14 36 28"
+                stroke="#8E44AD"
+                stroke-width="4"
+                fill="none"
+              />
+              <rect x="8" y="26" width="8" height="14" rx="4" fill="#9B59B6" />
+              <rect x="32" y="26" width="8" height="14" rx="4" fill="#9B59B6" />
+            </svg>
+            <div class="c-hp">
+              <div
+                class="c-hp-fill"
+                style="width: 78%; background: #2ecc71"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <a href="#origin" class="press-start" onclick="playSound('select')"
+          >▼ BEGIN ADVENTURE ▼</a
+        >
+      </div>
+      <div class="scroll-arrow">SCROLL</div>
+    </section>
+
+    <!-- map -->
+    <section class="world-map-section" id="map">
+      <div class="section-header">
+        <span class="zone-label" style="color: var(--rpg-green)">
+          OVERWORLD</span
+        >
+        <h2>Adventure Map</h2>
+        <p>Click any location to warp there.</p>
+      </div>
+      <div class="map-locations">
+        <a class="map-pin" href="#origin" onclick="playSound('select')">
+          <div class="pin-icon" style="background: #fff3e0">
+            <svg viewBox="0 0 48 48">
+              <rect x="8" y="12" width="32" height="28" rx="2" fill="#E67E22" />
+              <rect x="12" y="4" width="24" height="12" rx="2" fill="#F39C12" />
+              <rect x="14" y="18" width="8" height="8" fill="#FFF9C4" />
+              <rect x="26" y="18" width="8" height="8" fill="#FFF9C4" />
+              <rect
+                x="18"
+                y="30"
+                width="12"
+                height="10"
+                rx="1"
+                fill="#D35400"
+              />
+            </svg>
+          </div>
+          <span class="pin-label">ORIGIN<br />TALE</span>
+        </a>
+        <a class="map-pin" href="#petdex" onclick="playSound('select')">
+          <div class="pin-icon" style="background: #ffebee">
+            <svg viewBox="0 0 48 48">
+              <rect x="6" y="6" width="36" height="36" rx="4" fill="#E74C3C" />
+              <rect
+                x="10"
+                y="10"
+                width="28"
+                height="28"
+                rx="2"
+                fill="#FFEBEE"
+              />
+              <circle cx="24" cy="20" r="6" fill="#E74C3C" />
+              <rect x="14" y="30" width="20" height="4" rx="1" fill="#E74C3C" />
+            </svg>
+          </div>
+          <span class="pin-label">THE<br />PETDEX</span>
+        </a>
+        <a class="map-pin" href="#arena" onclick="playSound('select')">
+          <div class="pin-icon" style="background: #fff9c4">
+            <svg viewBox="0 0 48 48">
+              <polygon
+                points="24,4 44,18 38,42 10,42 4,18"
+                fill="#F1C40F"
+                stroke="#2B2D31"
+                stroke-width="2"
+              />
+              <circle cx="24" cy="24" r="8" fill="white" />
+              <polygon
+                points="24,18 26,22 30,22 27,25 28,30 24,27 20,30 21,25 18,22 22,22"
+                fill="#F1C40F"
+              />
+            </svg>
+          </div>
+          <span class="pin-label">BATTLE<br />ARENA</span>
+        </a>
+        <a class="map-pin" href="#guild" onclick="playSound('select')">
+          <div class="pin-icon" style="background: #f3e5f5">
+            <svg viewBox="0 0 48 48">
+              <path d="M24 4 L40 16 L40 38 L8 38 L8 16 Z" fill="#8E44AD" />
+              <rect x="14" y="22" width="8" height="8" fill="#F3E5F5" />
+              <rect x="26" y="22" width="8" height="8" fill="#F3E5F5" />
+              <polygon points="24,2 28,10 20,10" fill="#F1C40F" />
+            </svg>
+          </div>
+          <span class="pin-label">GUILD<br />HALL</span>
+        </a>
+        <a class="map-pin" href="#victory" onclick="playSound('select')">
+          <div class="pin-icon" style="background: #e8f5e9">
+            <svg viewBox="0 0 48 48">
+              <circle cx="24" cy="18" r="14" fill="#27AE60" />
+              <rect
+                x="18"
+                y="30"
+                width="12"
+                height="10"
+                rx="2"
+                fill="#1E8449"
+              />
+              <rect x="14" y="38" width="20" height="4" rx="1" fill="#145A32" />
+              <path
+                d="M18 14 L22 20 L30 10"
+                stroke="white"
+                stroke-width="3"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <span class="pin-label">VICTORY</span>
+        </a>
+        <a class="map-pin" href="#questlog" onclick="playSound('select')">
+          <div class="pin-icon" style="background: #ffebee">
+            <svg viewBox="0 0 48 48">
+              <rect x="10" y="6" width="28" height="36" rx="2" fill="#C0392B" />
+              <rect
+                x="14"
+                y="10"
+                width="20"
+                height="28"
+                rx="1"
+                fill="#FFEBEE"
+              />
+              <rect x="18" y="16" width="12" height="2" fill="#C0392B" />
+              <rect x="18" y="22" width="14" height="2" fill="#C0392B" />
+              <rect x="18" y="28" width="10" height="2" fill="#C0392B" />
+            </svg>
+          </div>
+          <span class="pin-label">QUEST<br />LOG</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- origin story -->
+    <section class="quest-section" id="origin">
+      <div class="section-header">
+        <span class="zone-label" style="color: var(--rpg-orange)"> ZONE 1</span>
+        <h2>The Origin Tale</h2>
+        <p>Every great adventure begins with a problem worth solving.</p>
+      </div>
+      <div class="quest-scroll" id="quest-scroll"></div>
+    </section>
+
+    <!-- victory conditions -->
+    <section class="victory-section" id="victory">
+      <div class="section-header">
+        <span class="zone-label" style="color: var(--rpg-green)">
+          VICTORY CONDITIONS</span
+        >
+        <h2>How We Measure Success</h2>
+        <p>Three targets that define whether PetObject truly helps.</p>
+      </div>
+      <div class="victory-cards" id="victory-cards"></div>
+    </section>
+
+    <!-- petdex catalogue -->
+    <section class="petdex-section" id="petdex">
+      <div class="section-header">
+        <span class="zone-label" style="color: var(--rpg-blue)"> ZONE 2</span>
+        <h2>The PetDex</h2>
+        <p>Every feature catalogued. Browse by iteration.</p>
+      </div>
+      <div class="petdex-frame">
+        <div class="petdex-top">
+          <div class="petdex-lens"></div>
+          <div class="petdex-dots">
+            <div class="petdex-dot red"></div>
+            <div class="petdex-dot yellow"></div>
+            <div class="petdex-dot green"></div>
+          </div>
+        </div>
+        <div class="petdex-tabs">
+          <button
+            class="petdex-tab active"
+            onclick="
+              switchTab('iter1', this);
+              playSound('click');
+            "
+          >
+            Iteration 1
+          </button>
+          <button
+            class="petdex-tab"
+            onclick="
+              switchTab('iter2', this);
+              playSound('click');
+            "
+          >
+            Iteration 2
+          </button>
+          <button
+            class="petdex-tab"
+            onclick="
+              switchTab('iter3', this);
+              playSound('click');
+            "
+          >
+            Iteration 3
+          </button>
+          <button
+            class="petdex-tab"
+            onclick="
+              switchTab('future', this);
+              playSound('click');
+            "
+          >
+            Future
+          </button>
+        </div>
+        <div class="petdex-screen">
+          <div class="petdex-page active" id="page-iter1">
+            <div class="petdex-grid" id="grid-iter1"></div>
+          </div>
+          <div class="petdex-page" id="page-iter2">
+            <div class="petdex-grid" id="grid-iter2"></div>
+          </div>
+          <div class="petdex-page" id="page-iter3">
+            <div class="petdex-grid" id="grid-iter3"></div>
+          </div>
+          <div class="petdex-page" id="page-future">
+            <div class="petdex-grid" id="grid-future"></div>
+          </div>
+          <div class="petdex-page" id="page-detail"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- demo video -->
+    <section class="arena-section" id="arena">
+      <div class="section-header">
+        <span class="zone-label" style="color: var(--rpg-gold)"> ZONE 3</span>
+        <h2>The Battle Arena</h2>
+        <p>Watch PetObject in action.</p>
+      </div>
+      <div class="battle-encounter">✦ A wild PetObject appeared! ✦</div>
+      <div class="phone-device">
+        <div class="phone-notch"></div>
+        <div class="phone-inner">
+          <!-- dummy video container -->
+          <div class="demo-placeholder-icon">
+            <svg viewBox="0 0 60 60" fill="none">
+              <rect
+                x="4"
+                y="10"
+                width="52"
+                height="40"
+                rx="4"
+                fill="#E0E0E0"
+                stroke="#2B2D31"
+                stroke-width="3"
+              />
+              <polygon points="25,22 25,42 42,32" fill="#E74C3C" />
+              <circle cx="30" cy="8" r="4" fill="#2B2D31" />
+            </svg>
+          </div>
+          <div class="demo-placeholder-text">
+            DEMO VIDEO<br />PLACEHOLDER<br /><br />Replace with your<br />screen
+            recording
+          </div>
+        </div>
+      </div>
+      <div class="battle-caption">
+        ▲ pet creation · usage logging · health tracking<br />financial
+        dashboard · graveyard · trophies & more
+      </div>
+    </section>
+
+    <!-- guild team -->
+    <section class="guild-section" id="guild">
+      <div class="section-header">
+        <span class="zone-label" style="color: var(--rpg-purple)"> ZONE 4</span>
+        <h2>The Guild Hall</h2>
+        <p>Click any trainer card to open their full PetDex profile.</p>
+      </div>
+      <div class="trainer-grid" id="trainer-grid"></div>
+    </section>
+
+    <!-- popup for trainer info -->
+    <div id="trainer-panel"></div>
+
+    <!-- quest logs/reflections -->
+    <section class="save-section" id="questlog">
+      <div class="section-header">
+        <span class="zone-label" style="color: var(--rpg-red)"> ZONE 5</span>
+        <h2>The Quest Log</h2>
+        <p>An honest reflection on our adventure.</p>
+      </div>
+      <div class="save-file-container" id="save-file-container"></div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-game-over">GAME SAVED SUCCESSFULLY</div>
+      <p>PetObject · COMP 3350 · Winter 2026 · University of Manitoba</p>
+      <p>Crafted with ❤️ by the final_final_v2_fr guild</p>
+      <div class="footer-stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
