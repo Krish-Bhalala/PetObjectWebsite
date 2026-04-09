@@ -59,7 +59,7 @@ const DATA = {
         typeClass: "type-core",
         body: 'Snap a photo of your purchase to "summon" a creature. Name it, enter its cost, set how often you plan to use it. Edit or delete anytime.',
         iter: "★ FEATURE HIGH PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "BbnzJSyh11A",
       },
       {
         num: "#002",
@@ -134,7 +134,7 @@ const DATA = {
         typeClass: "type-analytics",
         body: 'Pet health meets financial reality. Total spent, "Wasted Money" for dead pets, and your Wisdom Ratio how well you use what you buy.',
         iter: "★ FEATURE HIGH PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "DbGGblqFNLk",
       },
       {
         num: "#011",
@@ -161,7 +161,7 @@ const DATA = {
         typeClass: "type-gamify",
         body: 'Unlock achievements! "Daily Retriever" for daily use. "Weekly Winner" for using everything in a week. "Revival Witch" for saving a dying pet. Plus badges for wasteful patterns.',
         iter: "★ FEATURE MEDIUM PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "AJCTI5HK-uo",
       },
       {
         num: "#016",
@@ -170,7 +170,7 @@ const DATA = {
         typeClass: "type-reflect",
         body: "When a pet dies, it moves here. Write an eulogy. View all usage notes from its lifetime to understand neglect patterns.",
         iter: "★ FEATURE MEDIUM PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "p8wgxHgvfo8",
       },
       {
         num: "#017",
@@ -220,7 +220,7 @@ const DATA = {
         typeClass: "type-ux",
         body: "Comprehensive first-time guide explaining Hearts, Play button, and health bars. One screen for full conceptual clarity.",
         iter: "★ FEATURE MEDIUM PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "5NoA-HCtix8",
       },
       {
         num: "#173",
