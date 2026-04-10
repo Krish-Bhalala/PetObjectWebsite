@@ -84,7 +84,7 @@ const DATA = {
         typeClass: "type-core",
         body: "A dashboard where all creatures live. Visual cards in a grid photo, name, and health status. Your digital closet, way more fun than a list.",
         iter: "★ FEATURE HIGH PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "XwjzFG1jgCU",
       },
       {
         num: "#005",
@@ -109,7 +109,7 @@ const DATA = {
         typeClass: "type-core",
         body: 'Used your guitar today? Tap "Play" to log it! Health stays full or increases. Ignore the pet and health drops. Zero = the creature dies.',
         iter: "★ FEATURE HIGH PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "Of3mDvaPh6w",
       },
       {
         num: "#008",
@@ -179,7 +179,7 @@ const DATA = {
         typeClass: "type-analytics",
         body: 'Graphs of "Waste vs. Value" over months, cost-per-interaction, and time-series trends. Discover patterns in your spending behaviour.',
         iter: "★ FEATURE MEDIUM PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "jHVjaxnnBrE",
       },
       {
         num: "#116",
@@ -279,7 +279,7 @@ const DATA = {
         typeClass: "type-deep",
         body: "Full-screen hub for each pet. Identity, health, financial stats, and recent interactions all in one view.",
         iter: "★ FEATURE LOW PRIORITY",
-        videoId: "dQw4w9WgXcQ",
+        videoId: "NG7P-R5ydjE",
       },
       {
         num: "#254",
