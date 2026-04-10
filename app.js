@@ -158,14 +158,14 @@ function renderTrainers() {
           </div>
           <div class="tc-social-row">
             ${t.social
-              .map(
-                (s) => `
+          .map(
+            (s) => `
               <a class="tc-social-btn" href="${s.url}" target="_blank" rel="noopener" title="${s.label}" onclick="event.stopPropagation();playSound('coin')" style="--tc-accent:${t.accentColor}">
                 ${socialIcon(s.icon)}
               </a>
             `,
-              )
-              .join("")}
+          )
+          .join("")}
           </div>
         </div>
         <div class="tc-footer" style="background:${t.accentColor}20;border-top:2px solid ${t.accentColor}40">
@@ -780,6 +780,9 @@ function toggleSave(h) {
 // active nav checking
 const sections = document.querySelectorAll("section[id]"),
   navLinks = document.querySelectorAll(".hud-nav a");
+
+let bgmAutoPaused = false;
+
 window.addEventListener("scroll", () => {
   let c = "";
   sections.forEach((s) => {
@@ -788,6 +791,15 @@ window.addEventListener("scroll", () => {
   navLinks.forEach((l) =>
     l.classList.toggle("active", l.getAttribute("href") === "#" + c),
   );
+
+  if (c === "arena" && bgmTimer) {
+    clearTimeout(bgmTimer);
+    bgmTimer = null;
+    bgmAutoPaused = true;
+  } else if (c !== "arena" && bgmAutoPaused && soundEnabled) {
+    bgmAutoPaused = false;
+    startBGM();
+  }
 });
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener("click", (e) => {
